@@ -17,6 +17,17 @@ spec:
   targetNamespaces:
   - openshift-logging
 ---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: cluster-logging
+  namespace: openshift-logging 
+spec:
+  channel: "4.3" 
+  name: cluster-logging
+  source: redhat-operators 
+  sourceNamespace: openshift-marketplace
+---
 apiVersion: "logging.openshift.io/v1"
 kind: "ClusterLogging"
 metadata:
