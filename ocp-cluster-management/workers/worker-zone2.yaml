@@ -13,7 +13,7 @@ metadata:
   selfLink: /apis/machine.openshift.io/v1beta1/namespaces/openshift-machine-api/machinesets/sandbox-7l62h-worker-eastus2
   uid: 0949ed67-b260-46c4-b3f6-af5bb7c6de5b
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       machine.openshift.io/cluster-api-cluster: sandbox-7l62h
