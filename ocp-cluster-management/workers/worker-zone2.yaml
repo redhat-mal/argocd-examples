@@ -1,0 +1,67 @@
+apiVersion: machine.openshift.io/v1beta1
+kind: MachineSet
+metadata:
+  creationTimestamp: "2020-05-20T15:53:49Z"
+  generation: 1
+  labels:
+    machine.openshift.io/cluster-api-cluster: sandbox-7l62h
+    machine.openshift.io/cluster-api-machine-role: worker
+    machine.openshift.io/cluster-api-machine-type: worker
+  name: sandbox-7l62h-worker-eastus2
+  namespace: openshift-machine-api
+  resourceVersion: "21814"
+  selfLink: /apis/machine.openshift.io/v1beta1/namespaces/openshift-machine-api/machinesets/sandbox-7l62h-worker-eastus2
+  uid: 0949ed67-b260-46c4-b3f6-af5bb7c6de5b
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      machine.openshift.io/cluster-api-cluster: sandbox-7l62h
+      machine.openshift.io/cluster-api-machineset: sandbox-7l62h-worker-eastus2
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        machine.openshift.io/cluster-api-cluster: sandbox-7l62h
+        machine.openshift.io/cluster-api-machine-role: worker
+        machine.openshift.io/cluster-api-machine-type: worker
+        machine.openshift.io/cluster-api-machineset: sandbox-7l62h-worker-eastus2
+    spec:
+      metadata:
+        creationTimestamp: null
+      providerSpec:
+        value:
+          apiVersion: azureproviderconfig.openshift.io/v1beta1
+          credentialsSecret:
+            name: azure-cloud-credentials
+            namespace: openshift-machine-api
+          image:
+            offer: ""
+            publisher: ""
+            resourceID: /resourceGroups/sandbox-7l62h-rg/providers/Microsoft.Compute/images/sandbox-7l62h
+            sku: ""
+            version: ""
+          internalLoadBalancer: ""
+          kind: AzureMachineProviderSpec
+          location: eastus
+          managedIdentity: sandbox-7l62h-identity
+          metadata:
+            creationTimestamp: null
+          natRule: null
+          networkResourceGroup: att-sandbox
+          osDisk:
+            diskSizeGB: 512
+            managedDisk:
+              storageAccountType: Premium_LRS
+            osType: Linux
+          publicIP: false
+          publicLoadBalancer: ""
+          resourceGroup: sandbox-7l62h-rg
+          sshPrivateKey: ""
+          sshPublicKey: ""
+          subnet: att-sandbox-worker-subnet
+          userDataSecret:
+            name: worker-user-data
+          vmSize: Standard_D2s_v3
+          vnet: att-sandbox-vnet
+          zone: "2"
